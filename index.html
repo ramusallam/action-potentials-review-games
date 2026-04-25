@@ -619,6 +619,7 @@
         <button class="control-btn" id="tcount-2" onclick="setTeams(2)">2</button>
         <button class="control-btn" id="tcount-3" onclick="setTeams(3)">3</button>
         <button class="control-btn" id="tcount-4" onclick="setTeams(4)">4</button>
+        <button class="control-btn" id="tcount-5" onclick="setTeams(5)">5</button>
       </div>
 
       <div class="teams" id="teams"></div>
@@ -1010,7 +1011,7 @@ function renderTeams() {
       </div>
     </div>
   `).join('');
-  [2,3,4].forEach(n => {
+  [2,3,4,5].forEach(n => {
     const btn = document.getElementById(`tcount-${n}`);
     if (btn) btn.classList.toggle('active', teams.length === n);
   });
