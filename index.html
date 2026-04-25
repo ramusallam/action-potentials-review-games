@@ -340,6 +340,68 @@
   .pdot.done { background: var(--current-accent); border-color: var(--current-accent); }
   .pdot.current { box-shadow: 0 0 0 3px rgba(0,0,0,0.05); border-color: var(--current-accent); }
 
+  /* ============== TIMER ============== */
+  .timer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding: 14px 18px;
+    background: var(--bgPanel);
+    border: 1px solid var(--borderColor);
+    border-radius: 0.75rem;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .timer-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--textMuted);
+  }
+  .timer-bar-wrap {
+    flex: 1;
+    height: 8px;
+    background: var(--bgMain);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+  .timer-bar {
+    height: 100%;
+    width: 100%;
+    background: var(--current-accent, var(--accentBlue));
+    border-radius: 9999px;
+    transition: width 1s linear, background 0.3s ease;
+  }
+  .timer-display {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--textPrimary);
+    min-width: 64px;
+    text-align: right;
+    transition: color 0.3s ease;
+  }
+  .timer-row.warning {
+    border-color: var(--accentAmber);
+    background: rgba(245, 158, 11, 0.06);
+  }
+  .timer-row.warning .timer-bar { background: var(--accentAmber); }
+  .timer-row.warning .timer-display { color: var(--accentAmber); }
+  .timer-row.ended {
+    border-color: var(--accentRed);
+    background: rgba(239, 68, 68, 0.06);
+    animation: timerPulse 0.6s ease-out;
+  }
+  .timer-row.ended .timer-bar { background: var(--accentRed); width: 0%; }
+  .timer-row.ended .timer-display { color: var(--accentRed); }
+  @keyframes timerPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.015); }
+    100% { transform: scale(1); }
+  }
+
   .question-card {
     background: var(--bgCard);
     border: 1px solid var(--borderColor);
@@ -984,6 +1046,7 @@ function startGame(roundId) {
 }
 
 function backToMenu() {
+  stopTimer();
   document.getElementById('view-game').classList.remove('active');
   document.getElementById('view-menu').classList.add('active');
 }
@@ -1014,6 +1077,11 @@ function renderQuestion() {
   const q = currentRound.questions[currentQ];
   const isTrivia = q.type === 'trivia';
   area.innerHTML = `
+    <div class="timer-row" id="timer-row">
+      <span class="timer-label">Time</span>
+      <div class="timer-bar-wrap"><div class="timer-bar" id="timer-bar"></div></div>
+      <span class="timer-display" id="timer-display">1:00</span>
+    </div>
     <div class="question-card">
       <div class="qmeta">
         <span class="qcategory ${isTrivia ? 'trivia' : ''}">${escapeHtml(q.category)}</span>
@@ -1035,6 +1103,84 @@ function renderQuestion() {
       </div>
     </div>
   `;
+  startTimer(60);
+}
+
+/* ============================================================
+   TIMER + CALM BEEP
+   ============================================================ */
+const QUESTION_SECONDS = 60;
+let timerInterval = null;
+let timerRemaining = QUESTION_SECONDS;
+let audioCtx = null;
+
+function getAudioCtx() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch (e) { return null; }
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function playTimeUpBeep() {
+  const ctx = getAudioCtx();
+  if (!ctx) return;
+  // Two soft sine pulses — calm, not jarring
+  const now = ctx.currentTime;
+  [0, 0.45].forEach((delay, idx) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = idx === 0 ? 523.25 : 392.00; // C5 then G4 — gentle descent
+    gain.gain.value = 0;
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    const t = now + delay;
+    gain.gain.setValueAtTime(0, t);
+    gain.gain.linearRampToValueAtTime(0.18, t + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+    osc.start(t);
+    osc.stop(t + 0.4);
+  });
+}
+
+function formatTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${m}:${sec.toString().padStart(2, '0')}`;
+}
+
+function updateTimerUI() {
+  const display = document.getElementById('timer-display');
+  const bar = document.getElementById('timer-bar');
+  const row = document.getElementById('timer-row');
+  if (!display || !bar || !row) return;
+  display.textContent = formatTime(timerRemaining);
+  bar.style.width = `${(timerRemaining / QUESTION_SECONDS) * 100}%`;
+  row.classList.toggle('warning', timerRemaining > 0 && timerRemaining <= 10);
+  row.classList.toggle('ended', timerRemaining <= 0);
+}
+
+function startTimer(seconds) {
+  stopTimer();
+  timerRemaining = seconds;
+  updateTimerUI();
+  timerInterval = setInterval(() => {
+    timerRemaining--;
+    updateTimerUI();
+    if (timerRemaining <= 0) {
+      stopTimer();
+      playTimeUpBeep();
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
 }
 
 function pickChoice(i) {
@@ -1050,12 +1196,14 @@ function pickChoice(i) {
 }
 
 function nextQuestion() {
+  stopTimer();
   currentQ++;
   renderQuestion();
 }
 
 function prevQuestion() {
   if (currentQ === 0) return;
+  stopTimer();
   currentQ--;
   renderQuestion();
 }
