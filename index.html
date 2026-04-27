@@ -659,85 +659,85 @@ const ROUNDS = [
       { type: 'neuro', category: 'Neuro · Channels', difficulty: 'Easy',
         q: 'When a neuron reaches its <strong>threshold potential</strong>, which voltage-gated channel opens FIRST to start the rising phase of an action potential?',
         choices: [
-          'Voltage-gated K⁺ channels',
-          'Voltage-gated Na⁺ channels',
           'Ligand-gated Cl⁻ channels',
-          'Mechanically-gated Ca²⁺ channels'
+          'Mechanically-gated Ca²⁺ channels',
+          'Voltage-gated Na⁺ channels',
+          'Voltage-gated K⁺ channels'
         ],
-        answer: 1,
+        answer: 2,
         explanation: 'Reaching threshold triggers a conformational change in <strong>voltage-gated Na⁺ channels</strong>. They open first, letting Na⁺ rush into the cell. That influx is the rising (depolarization) phase of the action potential.'
       },
       // Q2 — Trivia: humanities
       { type: 'trivia', category: 'Humanities · Literature', difficulty: 'Easy',
         q: 'Which playwright wrote BOTH the tragedy <em>Hamlet</em> AND the romantic comedy <em>A Midsummer Night\'s Dream</em>?',
-        choices: ['Christopher Marlowe', 'William Shakespeare', 'Ben Jonson', 'John Webster'],
-        answer: 1,
+        choices: ['William Shakespeare', 'Christopher Marlowe', 'Ben Jonson', 'John Webster'],
+        answer: 0,
         explanation: '<strong>William Shakespeare</strong> wrote both — across roughly 39 plays. <em>A Midsummer Night\'s Dream</em> (~1595) is one of his early comedies; <em>Hamlet</em> (~1600) is one of his peak tragedies. The other three were Shakespeare\'s contemporaries.'
       },
       // Q3 — Neuro: depolarization ion
       { type: 'neuro', category: 'Neuro · Ion movement', difficulty: 'Easy',
         q: 'The rapid <strong>influx</strong> of which ion is responsible for the depolarization phase of an action potential?',
-        choices: ['K⁺', 'Na⁺', 'Cl⁻', 'Ca²⁺'],
-        answer: 1,
+        choices: ['Na⁺', 'Cl⁻', 'K⁺', 'Ca²⁺'],
+        answer: 0,
         explanation: 'During depolarization, voltage-gated Na⁺ channels open and <strong>Na⁺ rushes into the cell</strong> down its electrochemical gradient. The inside of the cell goes from –70 mV up toward +30 mV. K⁺ leaves later, during repolarization.'
       },
       // Q4 — Trivia: humanities
       { type: 'trivia', category: 'Humanities · Art history', difficulty: 'Medium',
         q: 'The Sistine Chapel ceiling, including <em>The Creation of Adam</em>, was painted by which Renaissance artist?',
-        choices: ['Leonardo da Vinci', 'Raphael', 'Michelangelo', 'Donatello'],
-        answer: 2,
+        choices: ['Donatello', 'Michelangelo', 'Raphael', 'Leonardo da Vinci'],
+        answer: 1,
         explanation: '<strong>Michelangelo</strong> painted the Sistine Chapel ceiling between 1508–1512, commissioned by Pope Julius II. He painted lying flat on a scaffold — over 5,000 square feet, frescoed in plaster while it was wet. He famously thought of himself as a sculptor first and resented the assignment.'
       },
       // Q5 — Neuro: repolarization ion
       { type: 'neuro', category: 'Neuro · Ion movement', difficulty: 'Easy',
         q: 'During the <strong>repolarization</strong> phase, which ion exits the cell to bring the membrane potential back toward its resting (negative) value?',
-        choices: ['Na⁺', 'K⁺', 'Ca²⁺', 'Cl⁻'],
-        answer: 1,
+        choices: ['Cl⁻', 'Ca²⁺', 'K⁺', 'Na⁺'],
+        answer: 2,
         explanation: 'Repolarization is driven by <strong>K⁺ leaving the cell</strong> through voltage-gated K⁺ channels. The Na⁺ channels have inactivated; K⁺ efflux pulls positive charge out, returning the membrane to a negative potential.'
       },
       // Q6 — Trivia: humanities
       { type: 'trivia', category: 'Humanities · Philosophy', difficulty: 'Medium',
         q: '"I think, therefore I am" is the most famous statement of which philosopher?',
-        choices: ['Plato', 'Aristotle', 'René Descartes', 'Immanuel Kant'],
-        answer: 2,
+        choices: ['Aristotle', 'René Descartes', 'Immanuel Kant', 'Plato'],
+        answer: 1,
         explanation: '<strong>René Descartes</strong>, 1637, in the <em>Discourse on the Method</em> (originally <em>"Je pense, donc je suis"</em>; later in Latin as <em>"Cogito, ergo sum"</em>). Descartes argued that the very act of doubting your own existence proves you exist as a thinking thing.'
       },
       // Q7 — Neuro: hyperpolarization
       { type: 'neuro', category: 'Neuro · Channel kinetics', difficulty: 'Medium',
         q: 'Why does the membrane briefly become MORE negative than the resting potential during the <strong>hyperpolarization</strong> phase?',
         choices: [
+          'Cl⁻ floods into the cell from outside',
           'Voltage-gated Na⁺ channels reopen briefly',
           'Voltage-gated K⁺ channels close slowly, so a little extra K⁺ leaves the cell',
-          'Cl⁻ floods into the cell from outside',
           'The Na⁺/K⁺ pump pushes 5 Na⁺ out at once'
         ],
-        answer: 1,
+        answer: 2,
         explanation: '<strong>Voltage-gated K⁺ channels close slowly</strong> at the end of repolarization. K⁺ keeps trickling out for a moment, pulling the membrane potential briefly below resting (more negative). That overshoot is hyperpolarization, and it helps prevent the neuron from firing again too soon.'
       },
       // Q8 — Trivia: humanities
       { type: 'trivia', category: 'Humanities · History', difficulty: 'Medium',
         q: 'The European Renaissance — the rebirth of art, science, and humanism — began primarily in which country in the 14th century?',
-        choices: ['France', 'Italy', 'England', 'Germany'],
-        answer: 1,
+        choices: ['England', 'France', 'Germany', 'Italy'],
+        answer: 3,
         explanation: '<strong>Italy</strong>, specifically Florence, in the 1300s. Italian wealth from trade, the rediscovery of Greek and Roman texts, and patrons like the Medici family fueled Brunelleschi, Botticelli, da Vinci, Michelangelo, and Galileo. The Renaissance spread north into France, England, and the Low Countries over the next ~200 years.'
       },
       // Q9 — Neuro: Na/K pump
       { type: 'neuro', category: 'Neuro · Active transport', difficulty: 'Medium',
         q: 'How does the <strong>Na⁺/K⁺ pump</strong> support a neuron\'s ability to fire repeated action potentials?',
         choices: [
+          'It triggers myelin formation around the axon',
           'It opens voltage-gated channels each time threshold is reached',
-          'It actively moves 3 Na⁺ out and 2 K⁺ into the cell, maintaining the gradients that ion channels rely on',
           'It releases neurotransmitter into the synapse',
-          'It triggers myelin formation around the axon'
+          'It actively moves 3 Na⁺ out and 2 K⁺ into the cell, maintaining the gradients that ion channels rely on'
         ],
-        answer: 1,
+        answer: 3,
         explanation: 'The Na⁺/K⁺ pump uses ATP to push <strong>3 Na⁺ out and 2 K⁺ in</strong> for each cycle. This actively maintains the steep concentration gradients the channels depend on. Without it, gradients dissipate and the neuron can\'t generate repeated action potentials.'
       },
       // Q10 — Trivia: humanities
       { type: 'trivia', category: 'Humanities · Literature', difficulty: 'Medium',
         q: 'Toni Morrison\'s 1987 novel <em>Beloved</em> is set in the aftermath of which American historical reality?',
-        choices: ['World War I', 'The Great Depression', 'American slavery and the Civil War', 'The Civil Rights Movement'],
-        answer: 2,
+        choices: ['The Great Depression', 'The Civil Rights Movement', 'World War I', 'American slavery and the Civil War'],
+        answer: 3,
         explanation: '<strong>American slavery and the Civil War.</strong> <em>Beloved</em> is loosely based on the true story of Margaret Garner, an enslaved woman who killed her own daughter rather than let her be returned to slavery. The novel won the Pulitzer Prize in 1988; Morrison won the Nobel Prize in Literature in 1993.'
       }
     ]
@@ -753,95 +753,95 @@ const ROUNDS = [
       { type: 'neuro', category: 'Neuro · Pathology', difficulty: 'Medium',
         q: 'A seizure is a sudden burst of excessive, synchronized firing in the brain. If a person\'s voltage-gated Na⁺ channels open <strong>too easily</strong> or stay open too long, what is the most likely consequence?',
         choices: [
-          'Neurons can\'t reach threshold at all',
           'Neurons reach threshold easily and fire repetitively, predisposing to seizures',
-          'The Na⁺/K⁺ pump shuts down completely',
-          'Voltage-gated K⁺ channels stop functioning'
+          'Neurons can\'t reach threshold at all',
+          'Voltage-gated K⁺ channels stop functioning',
+          'The Na⁺/K⁺ pump shuts down completely'
         ],
-        answer: 1,
+        answer: 0,
         explanation: 'If Na⁺ channels are too easily activated or stay open too long, <strong>threshold is reached more easily</strong> and Na⁺ influx is exaggerated and prolonged. Neurons fire repeatedly; if many fire in sync, you get the abnormal synchronous activity that defines a seizure. (Handbook Q12.)'
       },
       // Q2 — Trivia: math
       { type: 'trivia', category: 'Math · Algebra', difficulty: 'Easy',
         q: 'Solve for x:  <code>3x − 7 = 14</code>',
-        choices: ['x = 5', 'x = 7', 'x = 9', 'x = 21'],
-        answer: 1,
+        choices: ['x = 7', 'x = 5', 'x = 21', 'x = 9'],
+        answer: 0,
         explanation: 'Add 7 to both sides: <code>3x = 21</code>. Divide by 3: <code>x = 7</code>.'
       },
       // Q3 — Neuro: Long QT
       { type: 'neuro', category: 'Neuro · Cardiac pathology', difficulty: 'Medium',
         q: 'In <strong>Long QT syndrome</strong>, the heart takes too long to electrically reset between beats. Which channel typically fails to do its job efficiently?',
         choices: [
-          'Voltage-gated Na⁺ channels',
           'Voltage-gated K⁺ channels (responsible for repolarization)',
+          'Voltage-gated Na⁺ channels',
           'Cl⁻ channels',
           'Ca²⁺ pumps'
         ],
-        answer: 1,
+        answer: 0,
         explanation: '<strong>K⁺ channels in cardiac cells</strong> normally drive repolarization by letting K⁺ exit the cell. If they\'re inefficient, repolarization is prolonged → the QT interval lengthens → the heart is more vulnerable to dangerous arrhythmias. (Handbook Q14.)'
       },
       // Q4 — Trivia: math
       { type: 'trivia', category: 'Math · Geometry', difficulty: 'Medium',
         q: 'A triangle has two of its three angles measuring 45° and 60°. What is the third angle?',
-        choices: ['70°', '75°', '85°', '90°'],
-        answer: 1,
+        choices: ['75°', '90°', '70°', '85°'],
+        answer: 0,
         explanation: 'The interior angles of any triangle sum to 180°. <code>180° − 45° − 60° = 75°</code>.'
       },
       // Q5 — Neuro: hyperkalemic paralysis
       { type: 'neuro', category: 'Neuro · Muscle pathology', difficulty: 'Hard',
         q: 'A patient has high blood potassium AND faulty Na⁺ channels in skeletal muscle. Why does the muscle become weak or paralyzed?',
         choices: [
-          'Potassium physically blocks the Na⁺ channels',
           'High K⁺ partially depolarizes the membrane, and the abnormal Na⁺ channels stay inactivated, so no new action potentials can fire',
-          'The muscle has too much ATP and can\'t relax',
-          'The myelin sheath dissolves'
+          'Potassium physically blocks the Na⁺ channels',
+          'The myelin sheath dissolves',
+          'The muscle has too much ATP and can\'t relax'
         ],
-        answer: 1,
+        answer: 0,
         explanation: 'Elevated extracellular K⁺ <strong>partially depolarizes</strong> the resting membrane. If Na⁺ channels are also abnormal (slow to recover from inactivation), they stay <strong>inactivated</strong> in this depolarized state. The muscle can\'t fire new action potentials → weakness or paralysis. (Handbook Q13: hyperkalemic periodic paralysis.)'
       },
       // Q6 — Trivia: math
       { type: 'trivia', category: 'Math · Word problem', difficulty: 'Medium',
         q: 'An axon is exactly 1 meter long. A signal travels along it at 100 m/s. How long does the signal take to traverse the axon?',
-        choices: ['0.001 s (1 ms)', '0.01 s (10 ms)', '0.1 s (100 ms)', '1 s'],
-        answer: 1,
+        choices: ['0.01 s (10 ms)', '0.1 s (100 ms)', '0.001 s (1 ms)', '1 s'],
+        answer: 0,
         explanation: 'Time = distance / speed = <code>1 m ÷ 100 m/s = 0.01 s</code>, which is <strong>10 milliseconds</strong>. Real human myelinated axons can hit ~120 m/s; unmyelinated axons crawl at ~1 m/s.'
       },
       // Q7 — Neuro: ATP1A2 / migraine
       { type: 'neuro', category: 'Neuro · Genetic disease', difficulty: 'Hard',
         q: 'Familial hemiplegic migraine type 2 involves a mutation in <strong>ATP1A2</strong>, the gene that codes for part of the Na⁺/K⁺ pump. Why does that produce neurological symptoms?',
         choices: [
-          'ATP1A2 codes for the myelin sheath',
-          'Without a working Na⁺/K⁺ pump, ion gradients dissipate, the resting potential becomes unstable, and brain signaling goes haywire',
+          'The mutation deletes voltage-gated K⁺ channels',
           'The pump normally produces serotonin',
-          'The mutation deletes voltage-gated K⁺ channels'
+          'Without a working Na⁺/K⁺ pump, ion gradients dissipate, the resting potential becomes unstable, and brain signaling goes haywire',
+          'ATP1A2 codes for the myelin sheath'
         ],
-        answer: 1,
+        answer: 2,
         explanation: 'The Na⁺/K⁺ pump <strong>establishes the gradients</strong> that resting potential and action potentials depend on. A broken pump → gradients dissipate → unstable resting potential → abnormal hyperexcitability and faulty signaling. That manifests as migraines and transient one-sided weakness. (Handbook Q15.)'
       },
       // Q8 — Trivia: math
       { type: 'trivia', category: 'Math · Fractions', difficulty: 'Medium',
         q: 'Calculate:  <code>3/4 + 5/8</code>',
-        choices: ['8/12', '11/8', '8/8', '5/12'],
-        answer: 1,
+        choices: ['8/12', '8/8', '11/8', '5/12'],
+        answer: 2,
         explanation: 'Common denominator is 8. Convert <code>3/4 = 6/8</code>. Then <code>6/8 + 5/8 = 11/8</code>, which equals 1 and 3/8.'
       },
       // Q9 — Neuro: neurotoxin
       { type: 'neuro', category: 'Neuro · Pharmacology', difficulty: 'Hard',
         q: 'A neurotoxin <strong>permanently and selectively blocks all voltage-gated Na⁺ channels</strong> in a neuron. What happens immediately?',
         choices: [
-          'The neuron fires uncontrollably',
-          'The neuron repolarizes faster than normal',
           'The neuron can\'t depolarize past threshold, so no action potentials are generated and signaling stops',
-          'The myelin grows thicker around the axon'
+          'The myelin grows thicker around the axon',
+          'The neuron repolarizes faster than normal',
+          'The neuron fires uncontrollably'
         ],
-        answer: 2,
+        answer: 0,
         explanation: 'Without functional voltage-gated Na⁺ channels, the cell <strong>can\'t produce the rapid Na⁺ influx</strong> that triggers depolarization to threshold. No action potentials, no signal propagation — functional silence. Real-world example: tetrodotoxin (pufferfish toxin) does exactly this. (Handbook Q7.)'
       },
       // Q10 — Trivia: math
       { type: 'trivia', category: 'Math · Conversion', difficulty: 'Medium',
         q: 'A neuron\'s resting membrane potential is approximately −70 mV. At the peak of depolarization it reaches +30 mV. What is the total CHANGE in membrane potential?',
-        choices: ['40 mV', '70 mV', '100 mV', '130 mV'],
-        answer: 2,
+        choices: ['100 mV', '130 mV', '40 mV', '70 mV'],
+        answer: 0,
         explanation: 'Total change = <code>+30 − (−70) = +30 + 70 = 100 mV</code>. The membrane swings <strong>100 millivolts</strong> in roughly 1 millisecond. Wild that that\'s the unit your nervous system runs on.'
       }
     ]
@@ -858,37 +858,37 @@ const ROUNDS = [
         q: 'Why do action potentials travel <strong>faster</strong> in myelinated axons than in unmyelinated axons of the same diameter?',
         choices: [
           'Myelin slows ion movement, smoothing the signal',
-          'The action potential "jumps" between Nodes of Ranvier (saltatory conduction) instead of propagating continuously',
+          'Myelin generates ATP for propagation',
           'Myelinated axons have larger Na⁺ channels',
-          'Myelin generates ATP for propagation'
+          'The action potential "jumps" between Nodes of Ranvier (saltatory conduction) instead of propagating continuously'
         ],
-        answer: 1,
+        answer: 3,
         explanation: 'Myelin acts as electrical insulation. The action potential effectively <strong>jumps from Node of Ranvier to Node of Ranvier</strong> (saltatory conduction) instead of regenerating along every patch of membrane. This is faster and more energy-efficient. (Handbook Q9.)'
       },
       // Q2 — Trivia: pop culture / music
       { type: 'trivia', category: 'Pop Culture · Music', difficulty: 'Easy',
         q: 'Which artist released the original <em>1989</em> in 2014, then re-recorded it as <em>1989 (Taylor\'s Version)</em> in 2023?',
-        choices: ['Adele', 'Olivia Rodrigo', 'Taylor Swift', 'Billie Eilish'],
-        answer: 2,
+        choices: ['Taylor Swift', 'Adele', 'Olivia Rodrigo', 'Billie Eilish'],
+        answer: 0,
         explanation: '<strong>Taylor Swift.</strong> The re-recording campaign was her response to losing ownership of her master recordings. <em>1989 (Taylor\'s Version)</em> debuted at #1 in 2023, exactly nine years after the original.'
       },
       // Q3 — Neuro: MS case
       { type: 'neuro', category: 'Neuro · Clinical case', difficulty: 'Hard',
         q: 'A 27-year-old woman has had episodes of optic pain with blurred vision, then later left-leg weakness with sensory tingling, and now reports an "electric shock" running down her spine when she bends her neck forward (Lhermitte\'s sign). Symptoms worsen with heat. What is the most likely diagnosis?',
         choices: [
-          'Stroke',
-          'Multiple sclerosis (demyelination of CNS axons)',
+          'Vitamin D deficiency',
           'Migraine with aura',
-          'Vitamin D deficiency'
+          'Stroke',
+          'Multiple sclerosis (demyelination of CNS axons)'
         ],
-        answer: 1,
+        answer: 3,
         explanation: '<strong>Multiple sclerosis.</strong> The pattern fits MS: episodic neurological symptoms separated in time and space (optic neuritis, then a sensorimotor leg attack), Lhermitte\'s sign (electric shock down the spine on neck flexion = cervical demyelination), and Uhthoff\'s phenomenon (heat-worsening). MS is autoimmune demyelination of CNS axons. (Handbook case study, page 22.)'
       },
       // Q4 — Trivia: pop culture / music
       { type: 'trivia', category: 'Pop Culture · Music', difficulty: 'Medium',
         q: 'Which rapper released <em>good kid, m.A.A.d city</em> and won the <strong>Pulitzer Prize</strong> for the album <em>DAMN.</em>?',
-        choices: ['J. Cole', 'Kendrick Lamar', 'Drake', 'Tyler, The Creator'],
-        answer: 1,
+        choices: ['Kendrick Lamar', 'Drake', 'Tyler, The Creator', 'J. Cole'],
+        answer: 0,
         explanation: '<strong>Kendrick Lamar.</strong> <em>good kid, m.A.A.d city</em> dropped in 2012; <em>DAMN.</em> won the 2018 Pulitzer Prize for Music — the first non-classical, non-jazz album ever to win.'
       },
       // Q5 — Neuro: hyperpolarization is useful
@@ -896,61 +896,61 @@ const ROUNDS = [
         q: 'Hyperpolarization makes the neuron temporarily HARDER to fire. Why is that actually <strong>useful</strong> rather than wasteful?',
         choices: [
           'It generates extra ATP for the next signal',
-          'It enforces directional signaling, prevents backwards firing, and gives Na⁺ channels time to fully reset',
           'It strengthens the myelin sheath',
-          'It triggers neurotransmitter release at the next synapse'
+          'It triggers neurotransmitter release at the next synapse',
+          'It enforces directional signaling, prevents backwards firing, and gives Na⁺ channels time to fully reset'
         ],
-        answer: 1,
+        answer: 3,
         explanation: 'Hyperpolarization keeps the neuron from firing again immediately, which (a) <strong>prevents the action potential from going backwards</strong> along the axon, (b) gives <strong>Na⁺ channels time to recover from inactivation</strong>, and (c) regulates maximum firing frequency. It\'s a feature, not a bug. (Handbook Q10.)'
       },
       // Q6 — Trivia: pop culture / movies
       { type: 'trivia', category: 'Pop Culture · Film', difficulty: 'Medium',
         q: 'In Christopher Nolan\'s <em>Inception</em> (2010), what object does Cobb spin to determine whether he\'s in a dream or in reality?',
-        choices: ['A spinning top', 'A pocket watch', 'A coin', 'A wedding ring'],
-        answer: 0,
+        choices: ['A pocket watch', 'A spinning top', 'A wedding ring', 'A coin'],
+        answer: 1,
         explanation: '<strong>A spinning top.</strong> If it falls over, it\'s reality. If it spins indefinitely, it\'s a dream. The film\'s final shot — the top still spinning, then cutting before resolving — became one of the most-debated movie endings of the 21st century.'
       },
       // Q7 — Neuro: reflex vs reaction
       { type: 'neuro', category: 'Neuro · Reflex arc', difficulty: 'Medium',
         q: 'Why is a knee-jerk reflex <strong>much faster</strong> than a visual or auditory reaction to the same stimulus?',
         choices: [
-          'Reflexes use chemical signals while reactions use electrical',
           'A reflex bypasses the brain — the signal travels through the spinal cord only',
-          'Reaction time depends on body temperature, reflex time doesn\'t',
-          'Visual signals are inherently slower than every other type'
+          'Visual signals are inherently slower than every other type',
+          'Reflexes use chemical signals while reactions use electrical',
+          'Reaction time depends on body temperature, reflex time doesn\'t'
         ],
-        answer: 1,
+        answer: 0,
         explanation: '<strong>A reflex bypasses the brain.</strong> The reflex arc goes sensory neuron → spinal cord → motor neuron. A conscious reaction has to travel up to the brain, get processed across multiple regions, then back down — many more synapses, much more time. (Handbook Cycle 1, Explore lab.)'
       },
       // Q8 — Trivia: pop culture / film
       { type: 'trivia', category: 'Pop Culture · Film', difficulty: 'Easy',
         q: 'In Marvel\'s Guardians of the Galaxy, which character is famously voiced by Vin Diesel and speaks essentially one phrase, "I am Groot"?',
-        choices: ['Star-Lord', 'Drax', 'Groot', 'Rocket'],
-        answer: 2,
+        choices: ['Drax', 'Groot', 'Rocket', 'Star-Lord'],
+        answer: 1,
         explanation: '<strong>Groot.</strong> Diesel recorded "I am Groot" over a thousand times across films, varying intonation and emotion to convey full sentences. He also recorded the line in multiple languages for international releases.'
       },
       // Q9 — Neuro: absolute refractory period
       { type: 'neuro', category: 'Neuro · Refractory periods', difficulty: 'Hard',
         q: 'During the <strong>absolute refractory period</strong>, why is it impossible to fire a second action potential — no matter how strong the stimulus?',
         choices: [
-          'Voltage-gated Na⁺ channels are inactivated and cannot reopen until they reset',
+          'The myelin temporarily insulates the axon completely',
           'The Na⁺/K⁺ pump pulls Na⁺ out too quickly',
-          'K⁺ blocks all the channels',
-          'The myelin temporarily insulates the axon completely'
+          'Voltage-gated Na⁺ channels are inactivated and cannot reopen until they reset',
+          'K⁺ blocks all the channels'
         ],
-        answer: 0,
+        answer: 2,
         explanation: 'After firing, voltage-gated Na⁺ channels go into an <strong>inactivated state</strong> (separate from "closed but ready"). They can\'t reopen until the membrane repolarizes and they reset. No Na⁺ influx is possible during this window — no second action potential, regardless of stimulus strength. (Handbook Q6.)'
       },
       // Q10 — Trivia: pop culture / music
       { type: 'trivia', category: 'Pop Culture · Music', difficulty: 'Medium',
         q: 'Which song spent a record <strong>19 consecutive weeks at #1</strong> on the Billboard Hot 100 in 2019, edging out long-standing records by Mariah Carey and Boyz II Men?',
         choices: [
+          '"Bad Guy" by Billie Eilish',
           '"Despacito" by Luis Fonsi',
-          '"Old Town Road" by Lil Nas X',
           '"Blinding Lights" by The Weeknd',
-          '"Bad Guy" by Billie Eilish'
+          '"Old Town Road" by Lil Nas X'
         ],
-        answer: 1,
+        answer: 3,
         explanation: '<strong>"Old Town Road" by Lil Nas X (with Billy Ray Cyrus).</strong> 19 weeks at #1 — the longest run in the chart\'s 60+ year history. Famously kicked off the Billboard country chart for not being "country enough," then dominated the Hot 100 anyway.'
       }
     ]
