@@ -1005,6 +1005,18 @@ function loadTeams() {
 let teams = loadTeams();
 let currentRound = null;
 let currentQ = 0;
+let curChoices = [];   // choices in shuffled display order for the current question
+let curAnswer = -1;    // index of the correct answer within curChoices
+
+// Fisher–Yates shuffle — returns a shuffled copy, original untouched.
+function shuffle(a) {
+  a = a.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 function saveTeams() {
   try { localStorage.setItem(TEAMS_KEY, JSON.stringify(teams)); } catch (e) {}
@@ -1105,6 +1117,9 @@ function renderQuestion() {
 
   const q = currentRound.questions[currentQ];
   const isTrivia = q.type === 'trivia';
+  const order = shuffle(q.choices.map((_, i) => i));
+  curChoices = order.map(i => q.choices[i]);
+  curAnswer = order.indexOf(q.answer);
   area.innerHTML = `
     <div class="timer-row" id="timer-row">
       <span class="timer-label">Time</span>
@@ -1118,7 +1133,7 @@ function renderQuestion() {
       </div>
       <div class="qtext">${q.q}</div>
       <div class="choices" id="choices">
-        ${q.choices.map((c, i) => `
+        ${curChoices.map((c, i) => `
           <button class="choice" data-idx="${i}" onclick="pickChoice(${i})">
             <span class="letter">${String.fromCharCode(65 + i)}</span>
             <span>${c}</span>
@@ -1213,12 +1228,11 @@ function stopTimer() {
 }
 
 function pickChoice(i) {
-  const q = currentRound.questions[currentQ];
   const choices = document.querySelectorAll('#choices .choice');
   choices.forEach((el, idx) => {
     el.disabled = true;
     el.style.cursor = 'default';
-    if (idx === q.answer) el.classList.add('correct');
+    if (idx === curAnswer) el.classList.add('correct');
     else if (idx === i) el.classList.add('wrong');
   });
   document.getElementById('explanation').classList.add('show');
